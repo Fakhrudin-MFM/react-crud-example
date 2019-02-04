@@ -21,7 +21,7 @@ class IndexComponent extends Component {
         <Component1 nama="Mobil" nilai={this.state.mobil} />
         <Component2 />
         <Component3 />
-        <SC1 nama="Laptop" laptop={this.state.laptop} />
+        <SC1 nama="Laptop" nilai={this.state.laptop} />
         <SC2 />
         <SC3 />
       </div>

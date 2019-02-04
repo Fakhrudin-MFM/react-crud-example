@@ -5,15 +5,13 @@ const StatelessC1 = props => {
     <div>
       <h2>Daftar Nama {props.nama}</h2>
       <ul>
-        <li>
-          {props.nama} {props.laptop[0]}
-        </li>
-        <li>
-          {props.nama} {props.laptop[1]}
-        </li>
-        <li>
-          {props.nama} {props.laptop[2]}
-        </li>
+        {props.nilai.map(nilai => {
+          return (
+            <li>
+              {props.nama} {nilai}
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
