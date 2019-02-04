@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 import Component1 from './Component1';
-import Component2 from './Component2';
-import Component3 from './Component3';
+import Component2 from './Component1';
+import Component3 from './Component1';
 import SC1 from './SComponent1';
-import SC2 from './SComponent2';
-import SC3 from './SComponent3';
+import SC2 from './SComponent1';
+import SC3 from './SComponent1';
 
 class IndexComponent extends Component {
   state = {
     nama: 'Danil',
     semester: 6,
     mobil: ['Honda', 'Suzuki', 'Toyota'],
-    laptop: ['Asus', 'Lenovo', 'Samsung']
+    motor: ['Honda', 'Suzuki', 'Yamaha'],
+    hape: ['Asus', 'Oppo', 'Samsung'],
+    laptop: ['Asus', 'Lenovo', 'Samsung'],
+    buah: ['Apel', 'Mangga', 'Durian'],
+    makanan: ['Sate', 'Bakso', 'Sayur Kol']
   };
 
   render() {
@@ -19,11 +23,11 @@ class IndexComponent extends Component {
       <div>
         <h1>halo {this.state.nama}</h1>
         <Component1 nama="Mobil" nilai={this.state.mobil} />
-        <Component2 />
-        <Component3 />
+        <Component2 nama="Motor" nilai={this.state.motor} />
+        <Component3 nama="HP" nilai={this.state.hape} />
         <SC1 nama="Laptop" nilai={this.state.laptop} />
-        <SC2 />
-        <SC3 />
+        <SC2 nama="Buah" nilai={this.state.buah} />
+        <SC3 nama="Makanan" nilai={this.state.makanan} />
       </div>
     );
   }
