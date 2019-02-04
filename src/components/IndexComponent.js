@@ -5,6 +5,7 @@ import Component3 from './Component1';
 import SC1 from './SComponent1';
 import SC2 from './SComponent1';
 import SC3 from './SComponent1';
+import Crud from './Crud';
 
 class IndexComponent extends Component {
   state = {
@@ -21,6 +22,7 @@ class IndexComponent extends Component {
   render() {
     return (
       <div>
+        <Crud />
         <h1>halo {this.state.nama}</h1>
         <Component1 nama="Mobil" nilai={this.state.mobil} />
         <Component2 nama="Motor" nilai={this.state.motor} />

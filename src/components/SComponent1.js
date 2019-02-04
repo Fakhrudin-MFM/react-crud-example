@@ -5,9 +5,9 @@ const StatelessC1 = props => {
     <div>
       <h2>Daftar Nama {props.nama}</h2>
       <ul>
-        {props.nilai.map(nilai => {
+        {props.nilai.map((nilai, index) => {
           return (
-            <li>
+            <li key={index}>
               {props.nama} {nilai}
             </li>
           );
