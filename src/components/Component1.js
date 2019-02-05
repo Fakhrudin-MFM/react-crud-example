@@ -11,12 +11,18 @@ class Component1 extends React.Component {
           value={this.props.inputan}
           onChange={this.props.handleChange}
         />
-        <button
-          onClick={() =>
-            this.props.addTodo(this.props.nama, this.props.inputanName)
-          }>
-          Tambah {this.props.nama}
-        </button>
+
+        {this.props.tombol ? (
+          <button
+            onClick={() =>
+              this.props.addTodo(this.props.nama, this.props.inputanName)
+            }>
+            Tambah {this.props.nama}
+          </button>
+        ) : (
+          <button onClick={() => this.props.updateTodo()}>Update</button>
+        )}
+
         <h2>Daftar {this.props.nama}</h2>
         <ul>
           {this.props.nilai.length > 0 ? (
@@ -26,9 +32,19 @@ class Component1 extends React.Component {
                   {this.props.nama} {nilai}
                   <button
                     onClick={() =>
+                      this.props.getData(
+                        index,
+                        this.props.nama,
+                        this.props.inputanName
+                      )
+                    }>
+                    Edit
+                  </button>
+                  <button
+                    onClick={() =>
                       this.props.deleteTodo(index, this.props.nama)
                     }>
-                    Delete Data ke {index}{' '}
+                    Delete
                   </button>
                 </li>
               );

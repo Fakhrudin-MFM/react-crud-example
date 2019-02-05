@@ -23,7 +23,8 @@ class IndexComponent extends Component {
     ihape: '',
     ilaptop: '',
     ibuah: '',
-    imakanan: ''
+    imakanan: '',
+    tombol: true
   };
 
   handleChange = event => {
@@ -75,6 +76,49 @@ class IndexComponent extends Component {
     });
   };
 
+  getData = (index, param, param2) => {
+    let newState;
+    switch (param) {
+      case 'mobil':
+        newState = this.state.mobil[index];
+        break;
+      case 'motor':
+        newState = this.state.motor[index];
+        break;
+      default:
+        break;
+    }
+    console.log('data', newState);
+    this.setState({
+      [param2]: newState,
+      tombol: false
+    });
+  };
+
+  updateTodo = (index, param, param2) => {
+    let newState;
+    let iState;
+    switch (param) {
+      case 'mobil':
+        newState = [...this.state.mobil];
+        iState = this.state.imobil;
+        break;
+      case 'motor':
+        newState = [...this.state.motor];
+        iState = this.state.imotor;
+        break;
+      default:
+        break;
+    }
+
+    const newData = newState;
+    newData.splice(1, 1, iState);
+    this.setState({
+      [param]: newData,
+      [param2]: ''
+    });
+  };
+
   render() {
     return (
       <div>
@@ -88,6 +132,9 @@ class IndexComponent extends Component {
           inputanName="imobil"
           addTodo={this.addTodo}
           deleteTodo={this.deleteTodo}
+          getData={this.getData}
+          tombol={this.state.tombol}
+          updateTodo={this.updateTodo}
         />
 
         <Component2
@@ -98,6 +145,9 @@ class IndexComponent extends Component {
           inputanName="imotor"
           addTodo={this.addTodo}
           deleteTodo={this.deleteTodo}
+          getData={this.getData}
+          tombol={this.state.tombol}
+          updateTodo={this.updateTodo}
         />
         <Component3 nama="HP" nilai={this.state.hape} />
         <SC1 nama="Laptop" nilai={this.state.laptop} />
