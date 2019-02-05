@@ -16,7 +16,21 @@ class IndexComponent extends Component {
     hape: ['Asus', 'Oppo', 'Samsung'],
     laptop: ['Asus', 'Lenovo', 'Samsung'],
     buah: ['Apel', 'Mangga', 'Durian'],
-    makanan: ['Sate', 'Bakso', 'Sayur Kol']
+    makanan: ['Sate', 'Bakso', 'Sayur Kol'],
+    inputan: ''
+  };
+
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  addTodo = () => {
+    const newData = [...this.state.mobil];
+    newData.push(this.state.inputan);
+    this.setState({
+      mobil: newData,
+      inputan: ''
+    });
   };
 
   render() {
@@ -24,7 +38,13 @@ class IndexComponent extends Component {
       <div>
         <Crud />
         <h1>halo {this.state.nama}</h1>
-        <Component1 nama="Mobil" nilai={this.state.mobil} />
+        <Component1
+          nama="Mobil"
+          nilai={this.state.mobil}
+          handleChange={this.handleChange}
+          inputan={this.state.inputan}
+          addTodo={this.addTodo}
+        />
         <Component2 nama="Motor" nilai={this.state.motor} />
         <Component3 nama="HP" nilai={this.state.hape} />
         <SC1 nama="Laptop" nilai={this.state.laptop} />
