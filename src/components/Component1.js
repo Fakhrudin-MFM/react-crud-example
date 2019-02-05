@@ -19,13 +19,23 @@ class Component1 extends React.Component {
         </button>
         <h2>Daftar {this.props.nama}</h2>
         <ul>
-          {this.props.nilai.map((nilai, index) => {
-            return (
-              <li key={index}>
-                {this.props.nama} {nilai}
-              </li>
-            );
-          })}
+          {this.props.nilai.length > 0 ? (
+            this.props.nilai.map((nilai, index) => {
+              return (
+                <li key={index}>
+                  {this.props.nama} {nilai}
+                  <button
+                    onClick={() =>
+                      this.props.deleteTodo(index, this.props.nama)
+                    }>
+                    Delete Data ke {index}{' '}
+                  </button>
+                </li>
+              );
+            })
+          ) : (
+            <h1>Tidak Ada Data</h1>
+          )}
         </ul>
       </div>
     );

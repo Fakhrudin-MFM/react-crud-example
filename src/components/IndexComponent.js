@@ -11,7 +11,7 @@ class IndexComponent extends Component {
   state = {
     nama: 'Danil',
     semester: 6,
-    mobil: ['Honda', 'Suzuki', 'Toyota'],
+    mobil: [],
     motor: ['Honda', 'Suzuki', 'Yamaha'],
     hape: ['Asus', 'Oppo', 'Samsung'],
     laptop: ['Asus', 'Lenovo', 'Samsung'],
@@ -52,7 +52,27 @@ class IndexComponent extends Component {
       [param]: newData,
       [param2]: ''
     });
-    console.log('cek param', param);
+  };
+
+  deleteTodo = (index, param) => {
+    let newState;
+    switch (param) {
+      case 'mobil':
+        newState = [...this.state.mobil];
+        break;
+      case 'motor':
+        newState = [...this.state.motor];
+        break;
+      default:
+        break;
+    }
+
+    const newData = newState;
+    newData.splice(index, 1);
+
+    this.setState({
+      [param]: newData
+    });
   };
 
   render() {
@@ -67,6 +87,7 @@ class IndexComponent extends Component {
           inputan={this.state.imobil}
           inputanName="imobil"
           addTodo={this.addTodo}
+          deleteTodo={this.deleteTodo}
         />
 
         <Component2
@@ -76,6 +97,7 @@ class IndexComponent extends Component {
           inputan={this.state.imotor}
           inputanName="imotor"
           addTodo={this.addTodo}
+          deleteTodo={this.deleteTodo}
         />
         <Component3 nama="HP" nilai={this.state.hape} />
         <SC1 nama="Laptop" nilai={this.state.laptop} />
