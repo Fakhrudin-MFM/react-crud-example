@@ -11,7 +11,9 @@ class Component1 extends React.Component {
           value={this.props.inputan}
           onChange={this.props.handleChange}
         />
-        <button onClick={this.props.addTodo}>Tambah {this.props.nama}</button>
+        <button onClick={() => this.props.addTodo(this.props.nama)}>
+          Tambah {this.props.nama}
+        </button>
         <h2>Daftar {this.props.nama}</h2>
         <ul>
           {this.props.nilai.map((nilai, index) => {

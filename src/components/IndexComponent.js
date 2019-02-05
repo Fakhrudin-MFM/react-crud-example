@@ -17,20 +17,38 @@ class IndexComponent extends Component {
     laptop: ['Asus', 'Lenovo', 'Samsung'],
     buah: ['Apel', 'Mangga', 'Durian'],
     makanan: ['Sate', 'Bakso', 'Sayur Kol'],
-    inputan: ''
+    inputan: '',
+    imobil: '',
+    imotor: '',
+    ihape: '',
+    ilaptop: '',
+    ibuah: '',
+    imakanan: ''
   };
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  addTodo = () => {
-    const newData = [...this.state.mobil];
+  addTodo = param => {
+    let newState;
+    switch (param) {
+      case 'mobil':
+        newState = [...this.state.mobil];
+        break;
+      case 'motor':
+        newState = [...this.state.motor];
+      default:
+        break;
+    }
+
+    const newData = newState;
     newData.push(this.state.inputan);
     this.setState({
-      mobil: newData,
+      [param]: newData,
       inputan: ''
     });
+    console.log('cek param', param);
   };
 
   render() {
@@ -39,13 +57,20 @@ class IndexComponent extends Component {
         <Crud />
         <h1>halo {this.state.nama}</h1>
         <Component1
-          nama="Mobil"
+          nama="mobil"
           nilai={this.state.mobil}
           handleChange={this.handleChange}
           inputan={this.state.inputan}
           addTodo={this.addTodo}
         />
-        <Component2 nama="Motor" nilai={this.state.motor} />
+
+        <Component2
+          nama="motor"
+          nilai={this.state.motor}
+          handleChange={this.handleChange}
+          inputan={this.state.inputan}
+          addTodo={this.addTodo}
+        />
         <Component3 nama="HP" nilai={this.state.hape} />
         <SC1 nama="Laptop" nilai={this.state.laptop} />
         <SC2 nama="Buah" nilai={this.state.buah} />
