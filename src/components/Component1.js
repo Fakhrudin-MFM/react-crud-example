@@ -7,11 +7,14 @@ class Component1 extends React.Component {
         <p>tes data : {this.props.inputan}</p>
         <input
           type="text"
-          name="inputan"
+          name={this.props.inputanName}
           value={this.props.inputan}
           onChange={this.props.handleChange}
         />
-        <button onClick={() => this.props.addTodo(this.props.nama)}>
+        <button
+          onClick={() =>
+            this.props.addTodo(this.props.nama, this.props.inputanName)
+          }>
           Tambah {this.props.nama}
         </button>
         <h2>Daftar {this.props.nama}</h2>
