@@ -1,14 +1,6 @@
 import React from 'react';
-import {
-  Card,
-  CardImg,
-  CardText,
-  CardBody,
-  CardTitle,
-  CardSubtitle,
-  Button,
-  Col
-} from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle, Col } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 const Example = props => {
   return (
@@ -23,7 +15,7 @@ const Example = props => {
         <CardBody>
           <CardTitle dangerouslySetInnerHTML={{ __html: props.data.title }} />
           <CardText dangerouslySetInnerHTML={{ __html: props.data.excerpt }} />
-          <Button>Button</Button>
+          <Link to={'/web/' + props.data.slug}>Read More</Link>
         </CardBody>
       </Card>
     </Col>

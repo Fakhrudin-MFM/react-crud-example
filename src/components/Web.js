@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 // import axios from 'axios'
-import Navigasi from './Navigasi';
 import Kartu from './Kartu';
 import { Container, Row } from 'reactstrap';
 
@@ -33,12 +32,11 @@ class Web extends Component {
   render() {
     return (
       <Container>
-        <Navigasi />
         <Row>
           {this.state.datas.length > 0 ? (
-            this.state.datas.map(data => {
+            this.state.datas.map((data, i) => {
               console.log('data hasil map', data);
-              return <Kartu data={data} />;
+              return <Kartu key={i} data={data} />;
             })
           ) : (
             <h1>Loading..............</h1>
