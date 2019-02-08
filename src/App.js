@@ -4,13 +4,14 @@ import Web from './components/Web';
 import { Route } from 'react-router-dom';
 import Single from './components/Single';
 import Navigasi from './components/Navigasi';
+import List from './components/kategori/List';
 
 class App extends Component {
   render() {
     return (
       <div>
         <Navigasi />
-        <Route path="/" component={Home} exact />
+        <Route path="/" component={List} exact />
         <Route path="/web" component={Web} exact />
         <Route path="/web/:slug" component={Single} />
         <Route path="/about" component={About} />
